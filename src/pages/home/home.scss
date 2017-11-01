@@ -8,8 +8,15 @@ page-home {
   p{
     color:#333;
   }
-  #recommend .item-inner{
-    border:0;
-    padding:0;
+  // #recommend .item-inner,#life_home {
+  //   padding:0;
+  // }
+  .clearfixed::after{
+    content:"";
+    clear:both;
+    display: block;
+  }
+  ::-webkit-scrollbar{
+    display:none;
   }
 }

@@ -19,4 +19,7 @@ page-home {
   ::-webkit-scrollbar{
     display:none;
   }
+  .card-content-ios,.card-content-md{
+    padding:.5rem .5rem .2rem .5rem;
+  }
 }

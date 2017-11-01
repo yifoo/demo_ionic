@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { MyHttpService } from '../../app/utility/service/myhttp.service';
+import {DetailPage} from '../detail/detail';
 
 @Component({
   selector: 'page-home',
@@ -10,14 +11,16 @@ export class HomePage {
   carouselPic:Array<any>=[];
   nav:Array<any>=[];
   productList:Array<any>=[];
+  authorList:Array<any>=[];
   loadNum=4;
   loadTip="正在努力的加载中...";
   constructor(public myhttpCtrl:MyHttpService, public navCtrl: NavController) {
   
   }
-  ionViewWillEnter(){
+  ionViewWillLoad(){
    this.getCarousel();
    this.getNav();
+   this.getAuthor();
    this.getProducts();
   }
   getCarousel(){  
@@ -32,6 +35,13 @@ export class HomePage {
     .subscribe((data:any)=>{
       console.log(data);
       this.nav=data;
+    })
+  }
+  getAuthor(){
+    this.myhttpCtrl.sendRequest("../../assets/json/author.json")
+    .subscribe((data:any)=>{
+      console.log(data);
+      this.authorList=data;
     })
   }
   getProducts(){
@@ -51,6 +61,10 @@ export class HomePage {
     setTimeout(()=>{
       infiniteScroll.complete();
     },1000)
-      
+  }
+  jumpToDetail(index){
+    this.navCtrl.push(DetailPage,{
+      id:this.productList[index].pid
+    })
   }
 }

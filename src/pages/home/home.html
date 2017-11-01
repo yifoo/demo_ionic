@@ -12,7 +12,7 @@
       <ion-col col-3 *ngFor="let tmp of nav">
         <a href="#">
           <img [src]="'assets/'+tmp.img" alt="" style="width:3rem">
-          <p>{{tmp.title}}</p>
+          <p style="padding:.5rem;margin:0">{{tmp.title}}</p>
         </a>
       </ion-col>
     </ion-row>
@@ -42,51 +42,17 @@
         <span style="color:red">40元</span>
     </ion-item>
   </ion-list>
-
   <!-- 人物介绍 卡片-->
     <ion-item no-lines>
       <h3 item-start  style="margin:0">生活家</h3>
       <p item-end style="font-size:1rem;">查看全部</p>
     </ion-item>
     <ion-scroll scrollX="true"  zooming="true" style="margin:0 1rem;height:21rem;white-space: nowrap;">
-      <ion-card  style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
-        <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
+      <ion-card *ngFor="let item of authorList"  style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
+        <img [src]="'assets/'+item.img" style="height:10rem;"/>
         <ion-card-content text-center style="padding:0.5rem;">
-          <h3 style="font-size:1rem;">姜晓明</h3>
-          <p style="font-size:.8rem;margin:0">***创始人</p>
-          <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
-            <ion-icon name="add"></ion-icon>
-            <span style="font-size:1rem">关注</span>
-          </button>
-        </ion-card-content>
-      </ion-card>
-      <ion-card style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
-        <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
-        <ion-card-content text-center  style="padding:0.5rem;">
-          <h3 style="font-size:1rem;">李以健</h3>
-          <p style="font-size:1rem;margin:0">十八芝创始人</p>
-          <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
-            <ion-icon name="add"></ion-icon>
-            <span style="font-size:1rem">关注</span>
-          </button>
-        </ion-card-content>
-      </ion-card>
-      <ion-card style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
-        <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
-        <ion-card-content text-center style="padding:0.5rem;">
-          <h3 style="font-size:1rem;">李以健</h3>
-          <p style="font-size:1rem;margin:0">十八芝创始人</p>
-          <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
-            <ion-icon name="add"></ion-icon>
-            <span style="font-size:1rem">关注</span>
-          </button>
-        </ion-card-content>
-      </ion-card>
-      <ion-card style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
-        <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
-        <ion-card-content text-center style="padding:0.5rem;">
-          <h3 style="font-size:1rem;">李以健</h3>
-          <p style="font-size:1rem;margin:0">十八芝创始人</p>
+          <h3 style="font-size:1rem;">{{item.name}}</h3>
+          <p style="font-size:.8rem;margin:0">{{item.description}}</p>
           <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
             <ion-icon name="add"></ion-icon>
             <span style="font-size:1rem">关注</span>
@@ -94,36 +60,27 @@
         </ion-card-content>
       </ion-card>
     </ion-scroll>
-
       <!-- 所有商品 -->
     <ion-item no-lines>
       <h2 item-start style="margin:0 0.5rem 0 0">所有商品</h2>
       <p style="font-size:1rem;">发现当季舌尖上的真味</p>
     </ion-item>
+          <!-- 弹性布局,模拟下拉加载 -->
     <ion-list padding style="display:flex;flex-wrap:wrap;justify-content:space-around">
       <ng-container *ngFor="let item of productList;let myIndex=index">
-        <ion-card  *ngIf="myIndex<loadNum" style="width:46%;margin:.5rem 0;box-shadow:0 0px 1px rgba(0, 0, 0, 0.3)">
+        <ion-card (click)="jumpToDetail(myIndex)"  *ngIf="myIndex<loadNum" style="width:46%;margin:.5rem 0;box-shadow:0 0px 1px rgba(0, 0, 0, 0.3)">
           <img [src]="'assets/'+item.img"/>
           <ion-card-content>
             <h3>{{item.title}}</h3>
             <p style="color:red">{{item.price}}</p>
           </ion-card-content>
         </ion-card>
-       </ng-container>
-      
+        </ng-container>
     </ion-list>
+          <!-- 下拉加载 -->
     <ion-infinite-scroll (ionInfinite)="loadMore($event)">
-        <ion-infinite-scroll-content
-        [loadingText]="loadTip"
-        >
+        <ion-infinite-scroll-content [loadingText]="loadTip">
         </ion-infinite-scroll-content>
-      </ion-infinite-scroll>
-
-  <!-- <ion-card>
-    <img src="assets/imgs/224/1-1.jpg"/>
-    <ion-card-content>
-      <p>这是上述图片的描述信息</p>
-    </ion-card-content>
-  </ion-card> -->
-  
+    </ion-infinite-scroll>
 </ion-content>
+  

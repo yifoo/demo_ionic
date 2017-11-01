@@ -1,8 +1,8 @@
 <!-- <ion-header>
 </ion-header> -->
 <!--  -->
-<ion-content padding="false">
-  <ion-slides *ngIf="carouselPic.length>0" pager loop="true" autoplay="1000" style="height:23rem"   >
+<ion-content>
+  <ion-slides *ngIf="carouselPic.length>0" pager loop="true" autoplay="1000" style="height:15rem"   >
       <ion-slide *ngFor="let item of carouselPic">
         <img [src]="'assets/'+item.img" alt="">
       </ion-slide>
@@ -15,7 +15,6 @@
           <p>{{tmp.title}}</p>
         </a>
       </ion-col>
-      
     </ion-row>
   </ion-grid>
   <!-- 热卖推荐 -->
@@ -28,7 +27,7 @@
       <div style="position:relative;" class="clearfixed">
         <img src="assets/imgs/224/1-1.jpg"/>
         <img src="assets/imgs/avatar/default.jpg" alt="" style="position:absolute;right:1rem;bottom:-1.5rem;border-radius:50%;width:3rem;">
-    </div>
+      </div>
         <h2 style="font-weight: bold;">泉州手作冰饼</h2>
         <p style="margin-bottom:10px">这是上述图片的描述信息</p>
         <span style="color:red">40元</span>
@@ -37,7 +36,7 @@
       <div style="position:relative;" class="clearfixed">
         <img src="assets/imgs/224/1-5.jpg"/>
         <img src="assets/imgs/avatar/default.jpg" alt="" style="position:absolute;right:1rem;bottom:-1.5rem;border-radius:50%;width:3rem;">
-    </div>
+      </div>
         <h2>泉州手作冰饼</h2>
         <p>这是上述图片的描述信息</p>
         <span style="color:red">40元</span>
@@ -45,92 +44,81 @@
   </ion-list>
 
   <!-- 人物介绍 卡片-->
-  <ion-list id="life_home" no-lines>
-      <ion-item>
-        <h3 item-start  style="margin:0">生活家</h3>
-        <p item-end style="font-size:1rem;">查看全部</p>
-      </ion-item>
-      <ion-item>
-        <ion-scroll scrollX="true"  zooming="true" style="height:21rem;white-space: nowrap;">
-          <ion-card style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
-            <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
-            <ion-card-content text-center style="padding:0.5rem;">
-              <h3 style="font-size:1rem;">李以健</h3>
-              <p style="font-size:1rem;margin:0">十八芝创始人</p>
-              <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
-                <ion-icon name="add"></ion-icon>
-                <span style="font-size:1rem">关注</span>
-              </button>
-            </ion-card-content>
-          </ion-card>
-          <ion-card style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
-            <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
-            <ion-card-content text-center style="padding:0.5rem;">
-              <h3 style="font-size:1rem;">李以健</h3>
-              <p style="font-size:1rem;margin:0">十八芝创始人</p>
-              <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
-                <ion-icon name="add"></ion-icon>
-                <span style="font-size:1rem">关注</span>
-              </button>
-            </ion-card-content>
-          </ion-card>
-          <ion-card style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
-            <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
-            <ion-card-content text-center style="padding:0.5rem;">
-              <h3 style="font-size:1rem;">李以健</h3>
-              <p style="font-size:1rem;margin:0">十八芝创始人</p>
-              <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
-                <ion-icon name="add"></ion-icon>
-                <span style="font-size:1rem">关注</span>
-              </button>
-            </ion-card-content>
-          </ion-card>
-          <ion-card style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
-            <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
-            <ion-card-content text-center style="padding:0.5rem;">
-              <h3 style="font-size:1rem;">李以健</h3>
-              <p style="font-size:1rem;margin:0">十八芝创始人</p>
-              <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
-                <ion-icon name="add"></ion-icon>
-                <span style="font-size:1rem">关注</span>
-              </button>
-            </ion-card-content>
-          </ion-card>
-        </ion-scroll>
-      </ion-item>
+    <ion-item no-lines>
+      <h3 item-start  style="margin:0">生活家</h3>
+      <p item-end style="font-size:1rem;">查看全部</p>
+    </ion-item>
+    <ion-scroll scrollX="true"  zooming="true" style="margin:0 1rem;height:21rem;white-space: nowrap;">
+      <ion-card  style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
+        <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
+        <ion-card-content text-center style="padding:0.5rem;">
+          <h3 style="font-size:1rem;">姜晓明</h3>
+          <p style="font-size:.8rem;margin:0">***创始人</p>
+          <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
+            <ion-icon name="add"></ion-icon>
+            <span style="font-size:1rem">关注</span>
+          </button>
+        </ion-card-content>
+      </ion-card>
+      <ion-card style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
+        <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
+        <ion-card-content text-center  style="padding:0.5rem;">
+          <h3 style="font-size:1rem;">李以健</h3>
+          <p style="font-size:1rem;margin:0">十八芝创始人</p>
+          <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
+            <ion-icon name="add"></ion-icon>
+            <span style="font-size:1rem">关注</span>
+          </button>
+        </ion-card-content>
+      </ion-card>
+      <ion-card style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
+        <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
+        <ion-card-content text-center style="padding:0.5rem;">
+          <h3 style="font-size:1rem;">李以健</h3>
+          <p style="font-size:1rem;margin:0">十八芝创始人</p>
+          <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
+            <ion-icon name="add"></ion-icon>
+            <span style="font-size:1rem">关注</span>
+          </button>
+        </ion-card-content>
+      </ion-card>
+      <ion-card style="width:10rem;height:15.5rem;margin:0 .5rem;display: inline-block;">
+        <img src="assets/imgs/avatar/1.jpg" style="height:10rem;"/>
+        <ion-card-content text-center style="padding:0.5rem;">
+          <h3 style="font-size:1rem;">李以健</h3>
+          <p style="font-size:1rem;margin:0">十八芝创始人</p>
+          <button ion-button round color="danger" style="height:1.5rem;padding:0 1rem">
+            <ion-icon name="add"></ion-icon>
+            <span style="font-size:1rem">关注</span>
+          </button>
+        </ion-card-content>
+      </ion-card>
+    </ion-scroll>
+
+      <!-- 所有商品 -->
+    <ion-item no-lines>
+      <h2 item-start style="margin:0 0.5rem 0 0">所有商品</h2>
+      <p style="font-size:1rem;">发现当季舌尖上的真味</p>
+    </ion-item>
+    <ion-list padding style="display:flex;flex-wrap:wrap;justify-content:space-around">
+      <ng-container *ngFor="let item of productList;let myIndex=index">
+        <ion-card  *ngIf="myIndex<loadNum" style="width:46%;margin:.5rem 0;box-shadow:0 0px 1px rgba(0, 0, 0, 0.3)">
+          <img [src]="'assets/'+item.img"/>
+          <ion-card-content>
+            <h3>{{item.title}}</h3>
+            <p style="color:red">{{item.price}}</p>
+          </ion-card-content>
+        </ion-card>
+       </ng-container>
+      
     </ion-list>
-    <h2 item-start style="margin:0 0.5rem 0 0">所有商品</h2>
-    <p style="font-size:1rem;">发现当季舌尖上的真味</p>
-    <ion-list id="product" no-lines  style="display:flex;justify-content:space-between;">
-        <ion-item>
-          <div style="width:40%">
-            <img src="assets/imgs/224/1-1.jpg"/>
-            <h2 style="font-weight: bold;">泉州手作冰饼</h2>
-            <span style="color:red">40元</span>
-          </div>
-        </ion-item>
-        <ion-item>
-          <div style="width:40%">
-            <img src="assets/imgs/224/1-1.jpg"/>
-            <h2 style="font-weight: bold;">泉州手作冰饼</h2>
-            <span style="color:red">40元</span>
-          </div>
-        </ion-item>
-        <ion-item>
-          <div style="width:40%">
-            <img src="assets/imgs/224/1-1.jpg"/>
-            <h2 style="font-weight: bold;">泉州手作冰饼</h2>
-            <span style="color:red">40元</span>
-          </div>
-        </ion-item>
-        <ion-item>
-          <div style="width:40%">
-            <img src="assets/imgs/224/1-1.jpg"/>
-            <h2 style="font-weight: bold;">泉州手作冰饼</h2>
-            <span style="color:red">40元</span>
-          </div>
-        </ion-item>
-      </ion-list>
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+        <ion-infinite-scroll-content
+        [loadingText]="loadTip"
+        >
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
   <!-- <ion-card>
     <img src="assets/imgs/224/1-1.jpg"/>
     <ion-card-content>

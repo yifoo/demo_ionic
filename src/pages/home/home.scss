@@ -8,9 +8,9 @@ page-home {
   p{
     color:#333;
   }
-  // #recommend .item-inner,#life_home {
-  //   padding:0;
-  // }
+  div.scroll-content{
+    padding:0;
+  }
   .clearfixed::after{
     content:"";
     clear:both;

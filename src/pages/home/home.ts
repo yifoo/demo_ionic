@@ -24,28 +24,28 @@ export class HomePage {
    this.getProducts();
   }
   getCarousel(){  
-    this.myhttpCtrl.sendRequest("../../assets/json/index_carousel.json")
+    this.myhttpCtrl.sendRequest("assets/json/index_carousel.json")
     .subscribe((data:any)=>{
       console.log(data);
       this.carouselPic=data;
     })
   }
   getNav(){
-    this.myhttpCtrl.sendRequest("../../assets/json/index_nav.json")
+    this.myhttpCtrl.sendRequest("assets/json/index_nav.json")
     .subscribe((data:any)=>{
       console.log(data);
       this.nav=data;
     })
   }
   getAuthor(){
-    this.myhttpCtrl.sendRequest("../../assets/json/author.json")
+    this.myhttpCtrl.sendRequest("assets/json/author.json")
     .subscribe((data:any)=>{
       console.log(data);
       this.authorList=data;
     })
   }
   getProducts(){
-    this.myhttpCtrl.sendRequest("../../assets/json/products.json")
+    this.myhttpCtrl.sendRequest("assets/json/products.json")
     .subscribe((data:any)=>{
       this.productList=data;
     })

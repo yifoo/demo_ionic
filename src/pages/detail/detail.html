@@ -7,12 +7,49 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>detail</ion-title>
+    <!-- <ion-title>detail</ion-title> -->
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content style="background:#eee">
+  <!-- <div style="position:relative"> -->
+    <ion-slides *ngIf="detailList.length>0" pager loop="true" autoplay="1000" style="height:15rem"  >
+      <ion-slide *ngFor="let item of detailList">
+        <img [src]="'assets/'+item.img" alt="">
+      </ion-slide>
+    </ion-slides>
+    <div style="background:#fff;margin:0 1rem;padding-top:0" padding>
+      <div text-center>
+        <img src="assets/imgs/avatar/default.jpg" alt="" style="position:relative;top:-1.5rem;z-index:10;border-radius:50%;width:5rem;">
+        <h3 style="margin:0;font-size:1.3rem">杨薇薇</h3>
+        <p style="margin:0;font-size:1rem">人在江湖漂</p>
+      </div>
+      <h2>传统手作土凤梨酥 真材实料好味道</h2>
+      <p color="danger">76元</p>
+      <p>正品保证|全场包邮|不可退</p>
+      <button ion-button style="background:#ddd;color:#333" block small>
+        选择规格
+        <ion-icon  name="arrow-forward" style="position:absolute;right:1rem"></ion-icon>
+      </button>
+    </div>
+    <ion-item no-lines>
+        <h3 item-start  style="margin:0">商品详情</h3>
+    </ion-item>
+    <ion-list >
+      <ng-container *ngFor="let item of detailImg" style="padding:0;margin:0">
+        <img [src]="'assets/'+item.img" alt="">
+      </ng-container>
+    </ion-list>
 </ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2>
+        <img src="assets/imgs/detail/cart.png" alt="" style="width:2rem">
+        <p>购物车</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

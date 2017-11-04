@@ -14,40 +14,38 @@ export class HomePage {
   authorList:Array<any>=[];
   loadNum=4;
   loadTip="正在努力的加载中...";
+  detailPage:any="";
   constructor(public myhttpCtrl:MyHttpService, public navCtrl: NavController) {
-  
+    this.detailPage=DetailPage
   }
-  ionViewWillLoad(){
-   this.getCarousel();
-   this.getNav();
-   this.getAuthor();
-   this.getProducts();
+  ionViewDidLoad(){
+   this.getCarousel();//获取首页轮播banner
+   this.getNav(); //获取导航数据
+   this.getAuthor();//获取作者
+   this.getProducts();//获取产品数据
   }
   getCarousel(){  
     this.myhttpCtrl.sendRequest("assets/json/index_carousel.json")
     .subscribe((data:any)=>{
-      console.log(data);
       this.carouselPic=data;
     })
   }
   getNav(){
     this.myhttpCtrl.sendRequest("assets/json/index_nav.json")
     .subscribe((data:any)=>{
-      console.log(data);
       this.nav=data;
     })
   }
   getAuthor(){
     this.myhttpCtrl.sendRequest("assets/json/author.json")
     .subscribe((data:any)=>{
-      console.log(data);
       this.authorList=data;
     })
   }
   getProducts(){
     this.myhttpCtrl.sendRequest("assets/json/products.json")
-    .subscribe((data:any)=>{
-      this.productList=data;
+    .subscribe((result:any)=>{
+       this.productList=result;
     })
   }
   loadMore(infiniteScroll){
@@ -63,8 +61,9 @@ export class HomePage {
     },1000)
   }
   jumpToDetail(index){
+    var id=this.productList[index].pid;
     this.navCtrl.push(DetailPage,{
-      id:this.productList[index].pid
+      pid:id
     })
   }
 }

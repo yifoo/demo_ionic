@@ -1,0 +1,61 @@
+<!--
+  Generated template for the PayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>pay</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div 
+  style="height:250px;width:100%;background:rgba(0,0,0,0.3)">
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2>
+        <button ion-button clear>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-8 text-center>
+        <h5>确认付款</h5>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear>
+          <ion-icon name="help"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align:center">
+        ￥100
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col style="text-align:left">
+        支付账号
+      </ion-col>
+      <ion-col style="text-align:right">
+        asdf@gmail.com
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col style="text-align:left">
+        付款账号 
+      </ion-col>
+      <ion-col style="text-align:right">
+        花呗>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button  (click)="showLoading()" ion-button block color="secondary">支付</button>
+</ion-content>

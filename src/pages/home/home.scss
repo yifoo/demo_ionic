@@ -1,7 +1,4 @@
 page-home {
-  body{
-    font-size:5px;
-  }
   a{
     text-decoration: none;
   }
@@ -22,4 +19,7 @@ page-home {
   .card-content-ios,.card-content-md{
     padding:.5rem .5rem .2rem .5rem;
   }
+}
+html{
+  font-size:5px;
 }

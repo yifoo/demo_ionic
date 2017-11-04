@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController,ModalController, NavParams } from 'ionic-angular';
 import { MyHttpService } from '../../app/utility/service/myhttp.service';
+import { SpecPage } from '../spec/spec';
+import { CartPage } from '../cart/cart';
 /**
  * Generated class for the DetailPage page.
  *
@@ -14,25 +16,39 @@ import { MyHttpService } from '../../app/utility/service/myhttp.service';
   templateUrl: 'detail.html',
 })
 export class DetailPage {
-  detailList:Array<any>=[];
+  detail:any="";
   detailImg:Array<any>=[];
-  constructor(public myHttp:MyHttpService, public navCtrl: NavController, public navParams: NavParams) {
+  carouselImg:Array<any>=[];
+  isLike:boolean=false;
+  constructor(public modalCtrl:ModalController,public myHttp:MyHttpService, public navCtrl: NavController, public navParams: NavParams) {
   }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailPage');
-    this.getDetail();
-    this.getDetailImg();
+    let pid=this.navParams.get("pid");//获得商品ID
+    console.log("商品ID:"+pid);
+    this.getDetail(pid);
   }
-  getDetailImg(){
-    this.myHttp.sendRequest("assets/json/detail_img.json").subscribe(data=>{
-      this.detailImg=data;
+  getDetail(id){
+    this.myHttp.sendRequest("assets/json/products.json").subscribe(result=>{
+      for(var item of result){
+        if(item.pid==id){
+          this.detail=item;
+          console.log(this.detail)
+        }
+      }
+      this.carouselImg=this.detail.imgs.carousel; //获取轮播banner图
+      this.detailImg=this.detail.imgs.detail_img;//获取商品详情图
+      console.log( this.carouselImg)
     })
   }
-  getDetail(){
-    this.myHttp.sendRequest("assets/json/detail_carousel.json").subscribe(data=>{
-      this.detailList=data;
-    })
+  toggleLike(){
+     this.isLike=!(this.isLike);
   }
-
+  addCart(){
+    //显示一个模态窗口
+    let myModal = this.modalCtrl.create(SpecPage,{"product":this.detail});//传值到下单模态窗
+    myModal.present();
+  }
+  jumpToCart(){
+    this.navCtrl.push(CartPage);
+  }
 }

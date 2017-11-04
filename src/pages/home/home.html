@@ -23,22 +23,22 @@
       <h2 item-start style="margin:0 0.5rem 0 0">热卖推荐</h2>
       <p style="font-size:1rem;">精选品质好货</p>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="jumpToDetail(0)" >
       <div style="position:relative;" class="clearfixed">
-        <img src="assets/imgs/224/1-1.jpg"/>
+        <img src="assets/imgs/products/328/c (1).jpg"/>
         <img src="assets/imgs/avatar/default.jpg" alt="" style="position:absolute;right:1rem;bottom:-1.5rem;border-radius:50%;width:3rem;">
       </div>
-        <h2 style="font-weight: bold;">泉州手作冰饼</h2>
-        <p style="margin-bottom:10px">这是上述图片的描述信息</p>
+        <h2 style="font-weight: bold;font-size:3rem">泉州手作凤梨酥</h2>
+        <p>这是上述图片的描述信息</p>
         <span style="color:red">40元</span>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="jumpToDetail(8)">
       <div style="position:relative;" class="clearfixed">
-        <img src="assets/imgs/224/1-5.jpg"/>
+        <img src="assets/imgs/products/231/c (1).jpg"/>
         <img src="assets/imgs/avatar/default.jpg" alt="" style="position:absolute;right:1rem;bottom:-1.5rem;border-radius:50%;width:3rem;">
       </div>
-        <h2>泉州手作冰饼</h2>
-        <p>这是上述图片的描述信息</p>
+        <h2 style="font-weight: bold;font-size:3rem">江南米酒</h2>
+        <p >带着青春洋溢的天然甘甜 江南米酒</p>
         <span style="color:red">40元</span>
     </ion-item>
   </ion-list>
@@ -69,7 +69,7 @@
     <ion-list padding style="display:flex;flex-wrap:wrap;justify-content:space-around">
       <ng-container *ngFor="let item of productList;let myIndex=index">
         <ion-card (click)="jumpToDetail(myIndex)"  *ngIf="myIndex<loadNum" style="width:46%;margin:.5rem 0;box-shadow:0 0px 1px rgba(0, 0, 0, 0.3)">
-          <img [src]="'assets/'+item.img"/>
+          <img [src]="'assets/'+item.imgs.carousel[0]"/>
           <ion-card-content>
             <h3>{{item.title}}</h3>
             <p style="color:red">{{item.price}}</p>

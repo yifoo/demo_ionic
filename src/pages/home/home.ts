@@ -18,9 +18,6 @@ export class HomePage {
   constructor(public myhttpCtrl:MyHttpService, public navCtrl: NavController) {
     this.detailPage=DetailPage
   }
-  onPageLoaded(){
-    this.resizeFont(document,window);
-  }
   ionViewDidLoad(){
    this.getCarousel();//获取首页轮播banner
    this.getNav(); //获取导航数据
@@ -69,12 +66,4 @@ export class HomePage {
       pid:id
     })
   }
-  resizeFont(doc,win){
-      var docEl = doc.documentElement;//根元素html
-          var clientWidth = docEl.clientWidth;
-          if (!clientWidth) return;
-          //把document的fontSize大小设置成跟窗口成一定比例的大小，从而实现响应式效果。
-          docEl.style.fontSize = 20 * (clientWidth / 750) + 'px';
-          console.log(docEl.style.fontSize)
-    }
 }

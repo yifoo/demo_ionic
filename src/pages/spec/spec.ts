@@ -16,13 +16,13 @@ import { MyHttpService } from '../../app/utility/service/myhttp.service';
 export class SpecPage {
   product:Array<any>=[];
   count:number=1;
-  img:Array<any>=[];
+  img:any="";
   constructor(public viewCtrl:ViewController,public toastCtrl:ToastController,public navCtrl: NavController,public myHttp:MyHttpService, public navParams: NavParams) {
   }
 
   ionViewWillEnter(){
     this.product=this.navParams.get('product');
-    this.img=this.product.imgs.carousel[0];
+    this.img=this.product.imgs.carousel;
   }
   //计算购物数量
   calCount(isAdd){

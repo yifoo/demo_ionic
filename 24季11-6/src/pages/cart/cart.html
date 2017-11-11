@@ -1,0 +1,67 @@
+<!--
+  Generated template for the CartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>购物车</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid *ngIf="cartList.length>0">
+    <ion-row *ngFor="let item of cartList;let myIndex=index">
+      <ion-col col-2 align-self-center>
+          <ion-checkbox [(ngModel)]="item.select" (click)="getSum()"></ion-checkbox>
+      </ion-col>
+      <ion-col col-3  align-self-center>
+        <ion-thumbnail item-end>
+          <img [src]="'assets/'+item.imgs.carousel[0]" alt="" >
+        </ion-thumbnail>
+      </ion-col>
+      <ion-col style="height:7rem">
+        <p item-end style="margin:0">{{item.subtitle}}</p>
+        <p style="color:red;margin:0">¥{{item.price}}</p>
+        <ion-list>
+        <ion-item-sliding>
+          <ion-item style="min-height:2rem;height:2rem">
+            <button ion-button clear small (click)="calCount(myIndex,false,item.pid)">
+              <ion-icon name="remove"></ion-icon>
+            </button>
+            <span>{{item.count}}</span>
+            <button ion-button clear small (click)="calCount(myIndex,true,item.pid)">
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </ion-item>
+            <ion-item-options side="right">
+              <button ion-button color="danger" (click)="delPro(myIndex)">删除</button>
+            </ion-item-options>
+        </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+      </ion-row>
+  </ion-grid>
+  <div *ngIf="cartList.length==0">
+    <h1>您的购物车为空</h1>
+    <p>买买买</p>
+    <button ion-button block (click)="jumpToIndex()">去首页</button>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-8>
+        <ion-item no-lines>
+          <ion-checkbox item-start [(ngModel)]="isAllSel" (click)="allSel()"></ion-checkbox>
+          <ion-label>全选</ion-label>
+          <button ion-button clear style="color:#f00" item-end>合计:¥{{totalPrice}}</button>
+        </ion-item>
+      </ion-col>
+      <ion-col >
+        <button ion-button full color="light" style="border-radius:0" *ngIf="!totalPrice">结算</button>
+        <button ion-button full color="dark" style="border-radius:0" *ngIf="totalPrice" [navPush]="orderConfirmPage">结算</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

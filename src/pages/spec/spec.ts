@@ -16,7 +16,7 @@ import { MyHttpService } from '../../app/utility/service/myhttp.service';
 export class SpecPage {
   product:Array<any>=[];
   count:number=1;
-  img:Array<any>=[];
+  img:any="";
   constructor(public viewCtrl:ViewController,public toastCtrl:ToastController,public navCtrl: NavController,public myHttp:MyHttpService, public navParams: NavParams) {
   }
 
